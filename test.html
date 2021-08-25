@@ -1,0 +1,33 @@
+<html>
+	  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+	
+
+
+<textarea id="gps" name="gps" rows="20" cols="50"></textarea>
+<br><br><button>Click</button>
+<br><br>Result: <span id="timeSum"> 00:00</span>
+
+<script>
+$('button').click(function(){
+	  var t1 = "00:00";
+	  var mins = 0;
+	  var hrs = 0;
+	  var arrayOfLines = $('#gps').val().split('\n');
+    $.each(arrayOfLines, function(index, item) {
+		t1 = item.split(':')
+		hrs = hrs + parseInt(t1[0])
+		mins = mins + parseInt(t1[1])
+        
+    });
+	minhrs = Math.floor(parseInt(mins / 60));
+	hrs = hrs + minhrs
+	mins = mins % 60;
+	console.log(hrs +":"+ mins);
+	$('#timeSum').text(hrs +":"+ mins);
+});
+</script>
+
+</html>
