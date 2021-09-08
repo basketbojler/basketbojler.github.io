@@ -1,0 +1,93 @@
+<html>
+
+<head>
+	<link rel="icon" href="time-airplane.png">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-P7P0JJ0L5W"></script>
+
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-P7P0JJ0L5W');
+	</script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+	<meta name="description" content="Flight time logbook calculator ">
+
+	<meta name="keywords" content="flight, time, calculator, logbook, flying, logs, logging, aviation">
+
+</head>
+
+<body>
+	<title> Flight Time Calculator </title>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="#">FlightTime Calc</span></a>
+		  </div>
+		
+		  <ul class="nav navbar-nav navbar-right">
+		  </ul>
+		</div>
+	  </nav>
+	<div class="center">
+		<h2 class="title"><img src="time-airplane.png" height="3%" alt="flight time airplane" title="airplane time">
+			Flight
+			Time Calculator </h2>
+		Time format:
+		<input type="radio" id="hex" name="time" value="6" checked="checked" /> <sup>1</sup>&frasl;<sub>60</sub>
+		<input type="radio" id="dec" name="time" value="10" /> <sup>1</sup>&frasl;<sub>10</sub>
+		<textarea id="gps" name="gps" rows="20" cols="100"></textarea>
+
+		<br><br><button>Calculate</button> Sum: <span id="timeSum"> 00:00</span>
+		<hr>
+		<small>Use time format <b>hh.mm</b>, write each time in new line.</small>
+	</div>
+</body>
+<script>
+
+
+
+	$('button').click(function () {
+		var t1 = "00:00";
+		var mins = 0;
+		var hrs = 0;
+		var arrayOfLines = $('#gps').val().split('\n');
+		if ($('#hex').is(':checked')) {
+			$.each(arrayOfLines, function (index, item) {
+				t1 = item.split('.')
+				hrs = hrs + parseInt(t1[0])
+				mins = mins + parseInt(t1[1])
+			});
+
+			minhrs = Math.floor(parseInt(mins / 60));
+			hrs = hrs + minhrs
+			mins = mins % 60;
+			console.log(hrs + ":" + mins);
+			$('#timeSum').text(hrs + ":" + mins);
+		}
+		if ($('#dec').is(':checked')) {
+			$.each(arrayOfLines, function (index, item) {
+				t1 = item.split('.')
+				hrs = hrs + parseInt(t1[0])
+				mins = mins + parseInt(t1[1])
+			});
+			$('#timeSum').text(hrs + ":" + mins);
+		}
+	});
+</script>
+
+</html>
