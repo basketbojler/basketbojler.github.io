@@ -1,16 +1,18 @@
 body {
  text-align:center;
+ padding:0px;
+ margin:0px;
 }
 
-
-.center {
-  margin: auto;
-  width:720px;  
-  border: 3px solid black;
-  padding: 10px;
-  display: inline-block;
+.top-bar {
+  background-color: black;
+  color:white; 
 }
 
 .title {
 	text-align: center;
+}
+
+.lol {
+  text-align: center;
 }

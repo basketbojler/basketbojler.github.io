@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
 	<link rel="icon" href="time-airplane.png">
@@ -14,14 +15,12 @@
 
 		gtag('config', 'G-P7P0JJ0L5W');
 	</script>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<!-- Latest compiled JavaScript -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
 
 
@@ -33,34 +32,33 @@
 
 <body>
 	<title> Flight Time Calculator </title>
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
-		  <div class="navbar-header">
-			<a class="navbar-brand" href="#">FlightTime Calc</span></a>
-		  </div>
-		
-		  <ul class="nav navbar-nav navbar-right">
-		  </ul>
+		  <a class="navbar-brand" href="#">
+			<span><img src="time-airplane.png" alt="logo-airplane" height="25px"   class="d-inline-block align-text-top"></span>
+			FlightTime Calc
+		  </a>
 		</div>
 	  </nav>
-	<div class="center">
-		<h2 class="title"><img src="time-airplane.png" height="3%" alt="flight time airplane" title="airplane time">
+	<div class="row">
+	
+	<div class="col-md-8 offset-md-2 lol">
+		<h2 class="title"><img src="time-airplane.png" height="25px" alt="flight time airplane" title="airplane time">
 			Flight
 			Time Calculator </h2>
 		Time format:
 		<input type="radio" id="hex" name="time" value="6" checked="checked" /> <sup>1</sup>&frasl;<sub>60</sub>
 		<input type="radio" id="dec" name="time" value="10" /> <sup>1</sup>&frasl;<sub>10</sub>
-		<textarea id="gps" name="gps" rows="20" cols="100"></textarea>
+		<textarea id="gps" name="gps" rows="20" style="width: 100%; max-width: 100%;"></textarea>
 
 		<br><br><button>Calculate</button> Sum: <span id="timeSum"> 00:00</span>
 		<hr>
 		<small>Use time format <b>hh.mm</b>, write each time in new line.</small>
 	</div>
+
+</div>
 </body>
 <script>
-
-
-
 	$('button').click(function () {
 		var t1 = "00:00";
 		var mins = 0;
